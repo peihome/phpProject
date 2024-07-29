@@ -30,20 +30,17 @@ $pdf = new FPDF();
 // Add a page
 $pdf->AddPage();
 
-// Set font for title
+// Add logo
+$pdf->Image('images/logo.jpg', 10, 10, 30); // Adjust the path and size as needed
+
+// Set font
 $pdf->SetFont('Arial', 'B', 16);
 
 // Add a cell for the title
 $pdf->Cell(0, 10, 'Invoice', 0, 1, 'C');
 
 // Line break
-$pdf->Ln(10);
-
-// Add logo centered
-$pdf->Image('images/logo.jpg', $pdf->GetPageWidth() / 2 - 15, $pdf->GetY(), 30); // Adjust the size and position as needed
-
-// Line break
-$pdf->Ln(30);
+$pdf->Ln(20);
 
 // Customer details
 $pdf->SetFont('Arial', '', 12);
