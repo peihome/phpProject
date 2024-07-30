@@ -1,0 +1,23 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.hero-section {
+    background: url('/images/logo.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 100px 0;
+}
+
+.hero-section .display-4 {
+    font-weight: bold;
+    color: black;
+}
+
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+footer {
+    background: #333;
+}
