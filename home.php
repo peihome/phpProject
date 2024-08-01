@@ -14,7 +14,7 @@
         <div class="container">
             <h1 class="display-4">Welcome to Shop and Go</h1>
             <p class="lead">Your one-stop shop for all your grocery needs!</p>
-            <a href="product.php" class="btn btn-primary btn-lg">Browse Products</a>
+            <a href="product.php" class="btn btn-primary btn-lg custom-button1">Browse Products</a>
         </div>
     </div>
 
@@ -24,31 +24,31 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="../assets/images/vegetables.jpg" class="card-img-top" alt="Vegetables">
+                    <img src="images/vegetables.jpg" class="card-img-top" alt="Vegetables">
                     <div class="card-body">
                         <h5 class="card-title">Vegetables</h5>
                         <p class="card-text">Fresh and organic vegetables for a healthy lifestyle.</p>
-                        <a href="products.php?category=vegetables" class="btn btn-success">Shop Now</a>
+                        <a href="product.php" class="btn btn-success">Shop Now</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="../assets/images/fruits.jpg" class="card-img-top" alt="Fruits">
+                    <img src="images/fruits.jpg" class="card-img-top" alt="Fruits">
                     <div class="card-body">
                         <h5 class="card-title">Fruits</h5>
                         <p class="card-text">A variety of fresh fruits packed with vitamins.</p>
-                        <a href="products.php?category=fruits" class="btn btn-success">Shop Now</a>
+                        <a href="product.php" class="btn btn-success">Shop Now</a>
                     </div>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="../assets/images/dairy.jpg" class="card-img-top" alt="Dairy">
+                    <img src="images/dairy.jpg" class="card-img-top" alt="Dairy">
                     <div class="card-body">
                         <h5 class="card-title">Dairy</h5>
                         <p class="card-text">High-quality dairy products for your daily needs.</p>
-                        <a href="products.php?category=dairy" class="btn btn-success">Shop Now</a>
+                        <a href="product.php" class="btn btn-success">Shop Now</a>
                     </div>
                 </div>
             </div>

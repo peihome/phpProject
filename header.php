@@ -9,15 +9,20 @@
 </head>
 <body>
     <!-- Navbar -->
+     <div class= "nav-font">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.php">Shop and Go</a>
+        
+        <a class="navbar-brand" href="home.php">
+        <img src="images/logo.jpg" alt="Shop and Go" class="logo" id="navbar-logo">
+            Shop and Go</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
+        <div class="nav-font">
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="product.php">Products</a>
@@ -33,4 +38,6 @@
                 </li>
             </ul>
         </div>
+</div>
     </nav>
+</div>
