@@ -8,20 +8,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    // Fetch user from the database
+    
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->execute([$email]);
-    $user = $stmt->fetch();
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if ($user && password_verify($password, $user['password'])) {
-        // Set session and cookie
-        $_SESSION['user_id'] = $user['id'];
-        setcookie("user_id", $user['id'], time() + (86400 * 30), "/"); // 30 days
+        $_SESSION['loggedin'] = true;
+        $_SESSION['username'] = $user['username'];
 
-        header('Location: dashboard.php');
-        exit;
+     
+        setcookie('user', $user['username'], time() + (86400 * 30), "/"); 
+
+        header('Location: home.php'); 
+        exit();
     } else {
-        $error_message = "Invalid email or password.";
+        $error = "Invalid credentials";
     }
 }
 ?>
@@ -38,8 +40,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container mt-5">
         <h1>Login</h1>
-        <?php if (isset($error_message)): ?>
-            <div class="alert alert-danger"><?php echo htmlspecialchars($error_message); ?></div>
+        <?php if (isset($error)): ?>
+            <div class="alert alert-danger"><?php echo htmlspecialchars($error); ?></div>
         <?php endif; ?>
         <form method="post">
             <div class="form-group">
@@ -53,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button type="submit" class="btn btn-primary btn-lg custom-button1">Login</button>
         </form>
         <div class="product">
-        <p>Don't have an account? <a href="register.php">Register here</a>.</p>
+            <p>Don't have an account? <a href="register.php">Register here</a>.</p>
         </div>
     </div>
 </body>
