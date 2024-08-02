@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="images/vegetables.jpg" class="card-img-top" alt="Vegetables">
+                    <img src="../images/vegetables.jpg" class="card-img-top" alt="Vegetables">
                     <div class="card-body">
                         <h5 class="card-title">Vegetables</h5>
                         <p class="card-text">Fresh and organic vegetables for a healthy lifestyle.</p>
@@ -34,7 +34,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="images/fruits.jpg" class="card-img-top" alt="Fruits">
+                    <img src="../images/fruits.jpg" class="card-img-top" alt="Fruits">
                     <div class="card-body">
                         <h5 class="card-title">Fruits</h5>
                         <p class="card-text">A variety of fresh fruits packed with vitamins.</p>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-4">
                 <div class="card mb-4">
-                    <img src="images/dairy.jpg" class="card-img-top" alt="Dairy">
+                    <img src="../images/dairy.jpg" class="card-img-top" alt="Dairy">
                     <div class="card-body">
                         <h5 class="card-title">Dairy</h5>
                         <p class="card-text">High-quality dairy products for your daily needs.</p>

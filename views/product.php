@@ -16,7 +16,7 @@
             'name' => 'Apple',
             'price' => 1.50,
             'description' => 'Fresh and juicy apples.',
-            'image' => 'images/apple.jpg',
+            'image' => '../images/apple.jpg',
             'category' => 'Fruits',
             'unit' => 'lb' 
         ],
@@ -25,7 +25,7 @@
             'name' => 'Banana',
             'price' => 1.00,
             'description' => 'Sweet and ripe bananas.',
-            'image' => 'images/banana.jpg',
+            'image' => '../images/banana.jpg',
             'category' => 'Fruits',
             'unit' => 'lb' 
         ],
@@ -34,7 +34,7 @@
             'name' => 'Orange',
             'price' => 1.20,
             'description' => 'Citrusy and refreshing oranges.',
-            'image' => 'images/orange.jpg',
+            'image' => '../images/orange.jpg',
             'category' => 'Fruits',
             'unit' => 'lb' 
         ],
@@ -43,7 +43,7 @@
             'name' => 'Grapes',
             'price' => 1.20,
             'description' => 'Fresh and sweet grapes.',
-            'image' => 'images/grapes.jpg',
+            'image' => '../images/grapes.jpg',
             'category' => 'Fruits',
             'unit' => 'lb' 
         ],
@@ -52,7 +52,7 @@
             'name' => 'Carrot',
             'price' => 0.80,
             'description' => 'Crunchy and healthy carrots.',
-            'image' => 'images/carrot.jpg',
+            'image' => '../images/carrot.jpg',
             'category' => 'Vegetables',
             'unit' => 'lb' 
         ],
@@ -61,7 +61,7 @@
             'name' => 'Lettuce',
             'price' => 0.90,
             'description' => 'Fresh and crispy lettuce.',
-            'image' => 'images/lettuce.jpg',
+            'image' => '../images/lettuce.jpg',
             'category' => 'Vegetables',
             'unit' => 'lb' 
         ],
@@ -70,7 +70,7 @@
             'name' => 'Tomato',
             'price' => 0.70,
             'description' => 'Ripe and juicy tomatoes.',
-            'image' => 'images/tomato.jpg',
+            'image' => '../images/tomato.jpg',
             'category' => 'Vegetables',
             'unit' => 'lb' 
         ],
@@ -79,7 +79,7 @@
             'name' => 'Cucumber',
             'price' => 1.10,
             'description' => 'Cool and refreshing cucumbers.',
-            'image' => 'images/cucumber.jpg',
+            'image' => '../images/cucumber.jpg',
             'category' => 'Vegetables',
             'unit' => 'lb' 
         ],
@@ -88,7 +88,7 @@
             'name' => 'Milk',
             'price' => 2.00,
             'description' => 'Fresh dairy milk.',
-            'image' => 'images/milk.jpg',
+            'image' => '../images/milk.jpg',
             'category' => 'Dairy',
             'unit' => 'lb' 
         ],
@@ -97,7 +97,7 @@
             'name' => 'Cheese',
             'price' => 3.50,
             'description' => 'Delicious cheese.',
-            'image' => 'images/cheese.jpg',
+            'image' => '../images/cheese.jpg',
             'category' => 'Dairy',
             'unit' => 'lb' 
         ],
@@ -106,7 +106,7 @@
             'name' => 'Yogurt',
             'price' => 1.50,
             'description' => 'Creamy and healthy yogurt.',
-            'image' => 'images/yogurt.jpg',
+            'image' => '../images/yogurt.jpg',
             'category' => 'Dairy',
             'unit' => 'lb' 
         ],
@@ -115,7 +115,7 @@
             'name' => 'Butter',
             'price' => 2.50,
             'description' => 'Rich and creamy butter.',
-            'image' => 'images/butter.jpg',
+            'image' => '../images/butter.jpg',
             'category' => 'Dairy',
             'unit' => 'lb' 
         ],

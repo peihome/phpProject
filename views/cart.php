@@ -6,62 +6,62 @@ $products = [
     1 => [
         'name' => 'Apple',
         'price' => 1.50,
-        'image' => 'images/apple.jpg'
+        'image' => '../images/apple.jpg'
     ],
     2 => [
         'name' => 'Banana',
         'price' => 1.00,
-        'image' => 'images/banana.jpg'
+        'image' => '../images/banana.jpg'
     ],
     3 =>  [
         'name' => 'Orange',
         'price' => 1.20,
-        'image' => 'images/orange.jpg'
+        'image' => '../images/orange.jpg'
     ],
     4 =>  [
         'name' => 'Grapes',
         'price' => 1.20,
-        'image' => 'images/grapes.jpg'
+        'image' => '../images/grapes.jpg'
     ],
     5 =>  [
         'name' => 'Carrot',
         'price' => 0.80,
-        'image' => 'images/carrot.jpg'
+        'image' => '../images/carrot.jpg'
     ],
     6 =>  [
         'name' => 'Lettuce',
         'price' => 0.90,
-        'image' => 'images/lettuce.jpg'
+        'image' => '../images/lettuce.jpg'
     ],
     7 =>  [
         'name' => 'Tomato',
         'price' => 0.70,
-        'image' => 'images/tomato.jpg'
+        'image' => '../images/tomato.jpg'
     ],
     8 =>  [
         'name' => 'Cucumber',
         'price' => 1.10,
-        'image' => 'images/cucumber.jpg'
+        'image' => '../images/cucumber.jpg'
     ],
     9 =>  [
         'name' => 'Milk',
         'price' => 2.00,
-        'image' => 'images/milk.jpg'
+        'image' => '../images/milk.jpg'
     ],
     10 =>  [
         'name' => 'Cheese',
         'price' => 3.50,
-        'image' =>  'images/cheese.jpg'
+        'image' =>  '../images/cheese.jpg'
     ],
     11 =>  [
         'name' => 'Yogurt',
         'price' => 1.50,
-        'image' => 'images/yogurt.jpg'
+        'image' => '../images/yogurt.jpg'
     ],
     12 =>  [
         'name' => 'Butter',
         'price' => 2.50,
-        'image' => 'images/butter.jpg'
+        'image' => '../images/butter.jpg'
     ],
     
 ];

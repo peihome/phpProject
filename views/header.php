@@ -13,7 +13,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         
         <a class="navbar-brand" href="home.php">
-        <img src="images/logo.jpg" alt="Shop and Go" class="logo" id="navbar-logo">
+        <img src="../images/logo.jpg" alt="Shop and Go" class="logo" id="navbar-logo">
             Shop and Go</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

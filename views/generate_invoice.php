@@ -31,7 +31,7 @@ $pdf = new FPDF();
 $pdf->AddPage();
 
 // Add logo
-$pdf->Image('images/logo.jpg', 10, 10, 30); // Adjust the path and size as needed
+$pdf->Image('../images/logo.jpg', 10, 10, 30); // Adjust the path and size as needed
 
 // Set font
 $pdf->SetFont('Arial', 'B', 16);
