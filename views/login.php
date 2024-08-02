@@ -2,7 +2,7 @@
 
 <?php
 session_start();
-include 'db.php'; // Include database connection file
+require_once('../controllers/Utils.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];

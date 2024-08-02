@@ -1,5 +1,5 @@
 <?php
-require('fpdf.php');
+require_once('../lib/fpdf.php');
 
 // Database connection
 $conn = new mysqli('localhost', 'root', '', 'ShopNGo');
