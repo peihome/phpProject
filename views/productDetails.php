@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['id']); ?>">
                     <div class="form-group quantitySpinner">
                         <label for="quantity">Quantity (in lbs):</label>
-                        <input type="number" name="quantity" id="quantity" min="1" step="1" value="1" class="form-control mb-3" style="width: 100px;">
+                        <input type="number" name="quantity" id="quantity" min="1" max="20" step="1" value="1" class="form-control mb-3" style="width: 100px;">
                     </div>
                     <button type="submit" class="btn btn-primary btn-lg custom-button1">Add to Cart</button>
                 </form>

@@ -23,7 +23,7 @@ $orders = getOrdersByUserId();
                     </div>
                     <div class="center">
                         <a target="_blank" href="generate_invoice.php?order_id=<?= htmlspecialchars($order['order_id']); ?>"
-                            class="btn btn-secondary mt-3">Get Invoice</a>
+                            class="btn btn-primary mt-3">Get Invoice</a>
                     </div>
                 </div>
                 <div class="card-body">

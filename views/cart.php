@@ -71,7 +71,7 @@ $total = 0;
                                 <td><?php echo htmlspecialchars($product['name']); ?></td>
                                 <td>$<?php echo number_format($product['price'], 2); ?></td>
                                 <td>
-                                    <input type="number" name="quantity[<?php echo htmlspecialchars($product_id); ?>]" value="<?php echo htmlspecialchars($quantity); ?>" min="1" step="1" class="form-control" style="width: 100px;">
+                                    <input type="number" name="quantity[<?php echo htmlspecialchars($product_id); ?>]" value="<?php echo htmlspecialchars($quantity); ?>" min="1" max="20" step="1" class="form-control" style="width: 100px;">
                                 </td>
                                 <td>$<?php echo number_format($subtotal, 2); ?></td>
                             </tr>
