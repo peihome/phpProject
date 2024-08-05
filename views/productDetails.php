@@ -11,6 +11,15 @@ if (!$product) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if (!isset($_SESSION['email'])) {
+        $_SESSION['message'] = "Please login!";
+        $_SESSION['redirect_url'] = 'productDetails.php?id=' . $product_id;
+        header('Location: login.php');
+        exit;
+    }
+
+
     $quantity = 1;
     
     try {
