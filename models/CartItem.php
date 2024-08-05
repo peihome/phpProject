@@ -4,11 +4,12 @@ require_once("../controllers/dbconnection.php");
 
 class CartItem {
     private $conn;
-    private $table_name = "CartItems";
-
+    public $table_name = "CartItems";
+    private $productObj;
     public $cart_item_id;
     public $cart_id;
     public $product_id;
+    public $price;
     public $quantity;
     public $created_at;
     public $updated_at;
@@ -31,7 +32,7 @@ class CartItem {
         return $stmt->execute();
     }
 
-    public function read() {
+    public function getCartItemsById() {
         $query = "SELECT * FROM " . $this->table_name . " WHERE cart_id = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $this->cart_id);
@@ -61,6 +62,29 @@ class CartItem {
         $stmt->bind_param("i", $this->cart_item_id);
 
         return $stmt->execute();
+    }
+
+    public function getCartItemByIdAndProductId() {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE cart_id = ? AND product_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("ii", $this->cart_id, $this->product_id);
+        $stmt->execute();
+        
+        return $stmt->get_result();
+    }
+
+    public function updateCartItemByIdAndProductId() {
+        $query = "UPDATE " . $this->table_name . " SET quantity = ? WHERE cart_id = ? AND product_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("iii", $this->quantity, $this->cart_id, $this->product_id);
+        $stmt->execute();
+    }
+
+    public function insertCartItemByIdAndProductId() {
+        $query = "INSERT INTO " . $this->table_name . " (cart_id, product_id, quantity, price) VALUES (?, ?, ?, ?)";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("iiid", $this->cart_id, $this->product_id, $this->quantity, $this->price);
+        $stmt->execute();
     }
 }
 

@@ -30,18 +30,14 @@ class Address {
         return $stmt->execute();
     }
 
-    public function read() {
+    public function getAddressByUserId() {
         $query = "SELECT * FROM " . $this->table_name . " WHERE user_id = ?";
         $stmt = $this->conn->prepare($query);
         $stmt->bind_param("i", $this->user_id);
         $stmt->execute();
 
         $result = $stmt->get_result();
-        $addresses = [];
-        while ($row = $result->fetch_assoc()) {
-            $addresses[] = $row;
-        }
-        return $addresses;
+        return $result->fetch_assoc();
     }
 
     public function update() {

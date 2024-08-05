@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Vegetables</h5>
                         <p class="card-text">Fresh and organic vegetables for a healthy lifestyle.</p>
-                        <a href="product.php" class="btn btn-success">Shop Now</a>
+                        <a href="product.php?category=Vegetables" class="btn btn-success">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Fruits</h5>
                         <p class="card-text">A variety of fresh fruits packed with vitamins.</p>
-                        <a href="product.php" class="btn btn-success">Shop Now</a>
+                        <a href="product.php?category=Fruits" class="btn btn-success">Shop Now</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
                     <div class="card-body">
                         <h5 class="card-title">Dairy</h5>
                         <p class="card-text">High-quality dairy products for your daily needs.</p>
-                        <a href="product.php" class="btn btn-success">Shop Now</a>
+                        <a href="product.php?category=Dairy" class="btn btn-success">Shop Now</a>
                     </div>
                 </div>
             </div>

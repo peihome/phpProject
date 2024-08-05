@@ -1,30 +1,19 @@
-<?php include 'header.php'; ?>
-
-<?php
-session_start();
-require_once('../controllers/Utils.php');
+<?php 
+include 'header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->execute([$email]);
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['loggedin'] = true;
-        $_SESSION['username'] = $user['username'];
-
-     
-        setcookie('user', $user['username'], time() + (86400 * 30), "/"); 
-
-        header('Location: home.php'); 
-        exit();
-    } else {
-        $error = "Invalid credentials";
+    $userId = loginUser($email, $password);
+    if (is_int($userId)) {
+        $_SESSION['email'] = $email;
+        $_SESSION['userId'] = $userId;
+        header('Location: product.php');
+    }else {
+        $_SESSION['message'] = $login_response;
     }
+
 }
 ?>
 
@@ -46,11 +35,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="post">
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" required>
+                <input type="email" name="email" id="email" class="form-control" value="<?php echo $_POST['email'] ?>" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" required>
+                <input type="password" name="password" id="password" class="form-control" value="<?php echo $_POST['password'] ?>" required>
             </div>
             <button type="submit" class="btn btn-primary btn-lg custom-button1">Login</button>
         </form>

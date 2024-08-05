@@ -13,6 +13,10 @@ class Category {
         $this->conn = $dbController->connectDB();
     }
 
+    public function getTableName() {
+        return $this->table_name;
+    }
+
     public function __destruct() {
         $this->conn->close();
     }

@@ -54,9 +54,12 @@ CREATE TABLE IF NOT EXISTS Products (
     FOREIGN KEY (category_id) REFERENCES Categories(category_id)
 );
 
+ALTER TABLE Products AUTO_INCREMENT = 100;
+
 CREATE TABLE IF NOT EXISTS Carts (
     cart_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
+    is_active BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
@@ -134,10 +137,18 @@ INSERT INTO Categories (name, description) VALUES
 ('Dairy', 'Milk, cheese, and other dairy products');
 
 INSERT INTO Products (name, description, price, stock_quantity, category_id, image_url) VALUES
-('Apple', 'Fresh red apples', 0.99, 100, 1, 'images/apple.jpg'),
-('Banana', 'Fresh yellow bananas', 0.59, 150, 1, 'images/banana.jpg'),
-('Carrot', 'Fresh carrots', 0.49, 200, 2, 'images/carrot.jpg'),
-('Milk', '1 liter milk pack', 1.29, 50, 3, 'images/milk.jpg');
+('Apple', 'Fresh red apples', 0.99, 100, 1, '../images/apple.jpg'),
+('Banana', 'Fresh yellow bananas', 0.59, 150, 1, '../images/banana.jpg'),
+('Orange', 'Citrusy and refreshing oranges', 1.20, 200, 1, '../images/orange.jpg'),
+('Grapes', 'Fresh and sweet grapes', 1.20, 50, 1, '../images/grapes.jpg'),
+('Carrot', 'Crunchy and healthy carrots', 0.80, 150, 2, '../images/carrot.jpg'),
+('Lettuce', 'Fresh and crispy lettuce', 0.90, 100, 2, '../images/lettuce.jpg'),
+('Tomato', 'Ripe and juicy tomatoes', 0.70, 80, 2, '../images/tomato.jpg'),
+('Cucumber', 'Cool and refreshing cucumbers', 1.10, 90, 2, '../images/cucumber.jpg'),
+('Milk', 'Fresh dairy milk', 2.00, 110, 3, '../images/milk.jpg'),
+('Cheese', 'Delicious cheese', 3.50, 120, 3, '../images/cheese.jpg'),
+('Yogurt', 'Creamy and healthy yogurt', 1.50, 130, 3, '../images/yogurt.jpg'),
+('Butter', 'Rich and creamy butter', 2.50, 70, 3, '../images/butter.jpg');
 
 INSERT INTO Addresses (user_id, street, city, state, postal_code, country) VALUES
 (1, '123 Main St', 'Anytown', 'CA', '12345', 'USA'),

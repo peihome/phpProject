@@ -109,7 +109,6 @@ footer {
     color:#32CD32 !important;
 }
 
-
 .card {
     background-color: #fff;
     border-radius: 10px;
@@ -147,4 +146,50 @@ footer {
 }
 .form-group button:hover {
     background-color: #0056b3;
+}
+
+.alert-primary {
+    position: absolute !important;
+    width: 20em;
+    right: 1em;
+    float: right;
+    top: 8em;
+}
+
+#category {
+    width: 10em;
+}
+
+.categoryForm {
+    display: flex;
+    flex-flow: row-reverse;
+    margin-right: 1.6em;
+}
+
+.product {
+    text-align: center;
+}
+
+.pT2 {
+    padding-top: 2em;
+}
+
+.orders {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card {
+    width: 100%;
+}
+
+.card-header {
+    display: grid;
+    grid-template-columns: 4fr 1fr;
+}
+
+.center {
+    justify-self: center;
+    align-self: center;
 }

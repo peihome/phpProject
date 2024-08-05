@@ -2,7 +2,7 @@
 require_once("../controllers/dbconnection.php");
 class OrderItem {
     private $conn;
-    private $table_name = "OrderItems";
+    public $table_name = "OrderItems";
 
     public $order_item_id;
     public $order_id;
@@ -58,6 +58,22 @@ class OrderItem {
         $stmt->bind_param("i", $this->order_item_id);
 
         return $stmt->execute();
+    }
+
+    public function getOrderItemsByOrderId() {
+        $query = "SELECT oi.*, p.name as product_name FROM " . $this->table_name . " oi 
+                  JOIN Products p ON oi.product_id = p.product_id 
+                  WHERE oi.order_id = ?";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bind_param("i", $this->order_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        $orderItems = [];
+        while ($row = $result->fetch_assoc()) {
+            $orderItems[] = $row;
+        }
+        return $orderItems;
     }
 }
 

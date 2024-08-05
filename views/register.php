@@ -1,27 +1,20 @@
-<?php include 'header.php'; ?>
-
-<?php
-session_start();
-include 'db.php'; // Include database connection file
+<?php 
+include 'header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $email = $_POST['email'];
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $password = $_POST['password'];
+    $firstName = $_POST['firstName'];
+    $lastName = $_POST['lastName'];
 
-    // Check if email already exists
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->execute([$email]);
-    if ($stmt->rowCount() > 0) {
-        $error_message = "Email already exists.";
-    } else {
-       
-        $stmt = $pdo->prepare("INSERT INTO users (username, email, password) VALUES (?, ?, ?)");
-        $stmt->execute([$username, $email, $password]);
+    $register_response = registerUser($username, $password, $email, $firstName, $lastName);
 
-        $_SESSION['success_message'] = "Registration successful. Please log in.";
+    if (!is_bool($register_response) || $register_response !== true) {
+        $_SESSION['message'] = $register_response;
+    }else {
+        $_SESSION['message'] = "Registration successful. Please log in.";
         header('Location: login.php');
-        exit;
     }
 }
 ?>
@@ -38,21 +31,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container mt-5">
         <h1>Register</h1>
-        <?php if (isset($error_message)): ?>
-            <div class="alert alert-danger"><?php echo htmlspecialchars($error_message); ?></div>
-        <?php endif; ?>
+        
         <form method="post">
             <div class="form-group">
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username" class="form-control" required>
+                <input type="text" name="username" id="username" class="form-control" value="<?php echo $username ?>" required>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" class="form-control" required>
+                <input type="email" name="email" id="email" class="form-control" value="<?php echo $email ?>" required>
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password" class="form-control" required>
+                <input type="password" name="password" id="password" class="form-control" value="<?php echo $password ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" class="form-control" value="<?php echo $firstName ?>" required>
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" class="form-control" value="<?php echo $lastName ?>" required>
             </div>
             <button type="submit" class="btn btn-primary btn-lg custom-button1">Register</button>
         </form>

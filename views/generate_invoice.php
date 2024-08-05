@@ -1,28 +1,24 @@
 <?php
+session_start();
+
+require_once('../controllers/Utils.php');
 require_once('../lib/fpdf.php');
 
-// Database connection
-$conn = new mysqli('localhost', 'root', '', 'ShopNGo');
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+// Fetch order details
+$order = getOrderById($_GET['order_id']);
+
+$user = getUserByUserId($order['user_id']);
+
+$address = getAddressByUserId();
+
+$order_items = getOrderItemsByOrderId($order['order_id']);
+
+$productIds = [];
+foreach ($order_items as $key => $item) {
+    $productIds[] = $item['product_id'];
 }
 
-// Fetch order details
-$order_id = isset($_GET['order_id']) ? (int)$_GET['order_id'] : 1; // Example order ID, you can get this dynamically
-$order_sql = "SELECT * FROM Orders WHERE order_id = $order_id";
-$order_result = $conn->query($order_sql);
-$order = $order_result->fetch_assoc();
-
-$user_sql = "SELECT * FROM Users WHERE user_id = " . $order['user_id'];
-$user_result = $conn->query($user_sql);
-$user = $user_result->fetch_assoc();
-
-$address_sql = "SELECT * FROM Addresses WHERE user_id = " . $order['user_id'];
-$address_result = $conn->query($address_sql);
-$address = $address_result->fetch_assoc();
-
-$order_items_sql = "SELECT * FROM orderitems WHERE order_id = $order_id";
-$order_items_result = $conn->query($order_items_sql);
+$products = getProducts($productIds);
 
 // Create instance of FPDF class
 $pdf = new FPDF();
@@ -70,15 +66,11 @@ $pdf->Ln(10);
 
 // Table body
 $pdf->SetFont('Arial', '', 12);
-while ($row = $order_items_result->fetch_assoc()) {
-    $product_sql = "SELECT name FROM Products WHERE product_id = " . $row['product_id'];
-    $product_result = $conn->query($product_sql);
-    $product = $product_result->fetch_assoc();
-    
-    $pdf->Cell(40, 10, $row['product_id'], 1);
-    $pdf->Cell(60, 10, $product['name'], 1);
-    $pdf->Cell(30, 10, $row['quantity'], 1);
-    $pdf->Cell(30, 10, '$' . $row['price'], 1);
+foreach ($order_items as $key => $item) {
+    $pdf->Cell(40, 10, $item['product_id'], 1);
+    $pdf->Cell(60, 10, $products[$item['product_id']]['name'], 1);
+    $pdf->Cell(30, 10, $item['quantity'], 1);
+    $pdf->Cell(30, 10, '$' . $item['price'], 1);
     $pdf->Ln(10);
 }
 
