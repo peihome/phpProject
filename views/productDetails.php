@@ -40,16 +40,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <div class="container mt-5 product">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <img src="<?php echo htmlspecialchars($product['image_url']); ?>" class="img-fluid" alt="<?php echo htmlspecialchars($product['name']); ?>">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <h1><?php echo htmlspecialchars($product['name']); ?></h1>
                 <p><?php echo htmlspecialchars($product['description']); ?></p>
                 <p><strong>$<?php echo number_format($product['price'], 2); ?> per lb</strong></p>
                 <form action="" method="post">
                     <input type="hidden" name="product_id" value="<?php echo htmlspecialchars($product['id']); ?>">
-                    <div class="form-group">
+                    <div class="form-group quantitySpinner">
                         <label for="quantity">Quantity (in lbs):</label>
                         <input type="number" name="quantity" id="quantity" min="1" step="1" value="1" class="form-control mb-3" style="width: 100px;">
                     </div>

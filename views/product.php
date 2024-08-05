@@ -4,11 +4,6 @@
     <h1 class="text-center">Our Products</h1>
 
     <?php
-    if (isset($_SESSION['order_success'])) {
-        echo '<div class="alert alert-success text-center">' . htmlspecialchars($_SESSION['order_success']) . '</div>';
-        unset($_SESSION['order_success']);
-    }
-
     // Function to get all products or filter by category
     function filterProducts($category = null) {
         $products = getAllProducts();
@@ -28,7 +23,6 @@
     function display_products($products) {
         echo '<div class="row mt-4">';
         foreach ($products as $product) {
-            // Price per lb in CAD
             $pricePerLb = number_format($product['price'], 2);
 
             echo '

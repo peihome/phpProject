@@ -7,7 +7,10 @@ class Order {
 
     private $cartObj;
     private $orderItemObj;
+    private $addressObj;
+    private $userObj;
 
+    public $shipping_address;
     public $order_id;
     public $user_id;
     public $status;
@@ -20,6 +23,8 @@ class Order {
 
         $this->cartObj = new Cart();
         $this->orderItemObj = new OrderItem();
+        $this->addressObj = new Address();
+        $this->userObj = new User();
     }
 
     public function __destruct() {
@@ -68,6 +73,31 @@ class Order {
     }
 
     public function placeOrder() {
+
+        //Update Address
+        $this->addressObj->user_id = $this->user_id;
+        $address = $this->addressObj->getAddressByUserId();
+        
+        $this->addressObj->street = $this->shipping_address['street'];
+        $this->addressObj->city = $this->shipping_address['city'];
+        $this->addressObj->state = $this->shipping_address['state'];
+        $this->addressObj->postal_code = $this->shipping_address['postal_code'];
+        $this->addressObj->country = $this->shipping_address['country'];
+
+        if(!isset($address)){
+            $this->addressObj->create();
+        }else {
+            $this->addressObj->address_id = $address['address_id'];
+            $this->addressObj->updateAddressById();
+        }
+
+        
+        //Update Phone Number
+        $this->userObj->user_id = $this->user_id;
+        $this->userObj->phone = $this->shipping_address['phone'];
+        $this->userObj->updatePhoneNumberById();
+
+
         // Fetch active cart for the user
         $query = "SELECT * FROM " . $this->cartObj->table_name . " WHERE user_id = ? AND is_active = TRUE";
         $stmt = $this->conn->prepare($query);

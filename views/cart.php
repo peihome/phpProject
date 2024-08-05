@@ -1,6 +1,13 @@
 <?php
 include 'header.php';
 
+if (!isset($_SESSION['email'])) {
+    $_SESSION['message'] = "Please login!";
+    $_SESSION['redirect_url'] = "cart.php";
+    header('Location: login.php');
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     foreach ($_POST['quantity'] as $product_id => $quantity) {
         if (is_numeric($quantity) && $quantity > 0) {
@@ -79,7 +86,10 @@ $total = 0;
             <div class="product">
             <a href="checkout.php" class="btn btn-success btn-lg mt-4 custom-button1">Proceed to Checkout</a>
         <?php else: ?>
-            <p class="text-center">Your cart is empty.</p>
+            <div class="text-center">
+                <p>Your cart is empty.</p>
+                <img src="../images/empty_cart.png" alt="Empty Cart" class="img-fluid" style="max-width: 300px;">
+            </div>
         <?php endif; ?>
         </div>
     </div>

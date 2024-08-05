@@ -13,6 +13,7 @@ class User {
     public $last_name;
     public $created_at;
     public $updated_at;
+    public $phone;
 
     public function __construct() {
         $dbController = new DBController();
@@ -183,6 +184,26 @@ class User {
         $result = $stmt->get_result();
 
         return $result->fetch_assoc();
+    }
+
+    public function updatePhoneNumberById() {
+        $query = "UPDATE " . $this->table_name . " SET phone = ? WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bind_param("si", $this->phone, $this->user_id);
+
+        $stmt->execute();
+    }
+
+    public function getPhoneById() {
+        $query = "SELECT phone FROM " . $this->table_name . " WHERE user_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bind_param("s", $this->user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+
+        return $result->fetch_assoc()['phone'];
     }
 }
 ?>

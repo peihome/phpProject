@@ -1,4 +1,3 @@
-<!-- /includes/footer.php -->
 <!-- Footer -->
 <?php if(isset($_SESSION['message'])) { ?>
 

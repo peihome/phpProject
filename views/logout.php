@@ -4,7 +4,8 @@
 <?php
 session_unset();
 session_destroy();
-setcookie("user_id", "", time() - 3600, "/"); // Clear cookie
+session_start();
+$_SESSION['message'] = "Logged out successfully!";
 header('Location: login.php');
 exit;
 ?>

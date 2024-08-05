@@ -9,7 +9,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (is_int($userId)) {
         $_SESSION['email'] = $email;
         $_SESSION['userId'] = $userId;
-        header('Location: product.php');
+        $user = getUserByUserId($userId);
+        $_SESSION['message'] = "Welcome " . $user['first_name'] . "!";
+        if($_SESSION['redirect_url']){
+            header('Location: ' . $_SESSION['redirect_url']);
+        }else {
+            header('Location: product.php');
+        }
+        exit;
     }else {
         $_SESSION['message'] = $login_response;
     }
@@ -17,15 +24,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="../styles/style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
 <body>
     <div class="container mt-5">
         <h1>Login</h1>
@@ -48,6 +46,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 </body>
-</html>
 
 <?php include 'footer.php'; ?>

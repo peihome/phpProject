@@ -40,7 +40,7 @@ class Address {
         return $result->fetch_assoc();
     }
 
-    public function update() {
+    public function updateAddressById() {
         $query = "UPDATE " . $this->table_name . " SET street = ?, city = ?, state = ?, postal_code = ?, country = ? WHERE address_id = ?";
         $stmt = $this->conn->prepare($query);
 

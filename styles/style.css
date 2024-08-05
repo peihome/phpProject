@@ -193,3 +193,30 @@ footer {
     justify-self: center;
     align-self: center;
 }
+
+.quantitySpinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+header {
+    min-height: 50px;
+}
+
+.navbar-expand-lg {
+    justify-content: space-between !important;
+}

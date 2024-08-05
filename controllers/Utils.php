@@ -37,8 +37,9 @@
         return $cart->getCartIdByUserId();
     }
 
-    function placeOrder() {
+    function placeOrder($shipping_address) {
         $order = new Order();
+        $order->shipping_address = $shipping_address;
         $order->user_id = $_SESSION['userId'];
 
         $order->placeOrder();
@@ -146,6 +147,13 @@
         $user->user_id = $user_id;
 
         return $user->getUserById();
+    }
+
+    function getPhoneByUserId() {
+        $user = new User();
+        $user->user_id = $_SESSION['userId'];
+
+        return $user->getPhoneById();
     }
 
 ?>
