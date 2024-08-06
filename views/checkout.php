@@ -111,7 +111,7 @@ $total = 0;
                         <h3>Shipping Information</h3>
                         <div class="form-group">
                             <label for="street">Street</label>
-                            <input type="text" id="street" name="street" class="form-control" value="<?= htmlspecialchars($address['street']) ?>" required>
+                            <input type="text" id="street" name="street" class="form-control" value="<?= htmlspecialchars($address['street']) ?>" required maxlength="50">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">

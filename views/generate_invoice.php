@@ -91,7 +91,7 @@ foreach ($order_items as $key => $item) {
     $pdf->Cell(30, 10, $item['quantity'], 1);
     $pdf->Cell(30, 10, '$' . number_format($item['price'], 2), 1);
     $pdf->Ln(10);
-    $total += $item['price'] * $item['quantity'];
+    $total += $item['price'];
 }
 
 // Add total
@@ -115,7 +115,7 @@ $pdf->Ln(10);
 
 // Thank you message details
 $pdf->SetFont('Arial', '', 12);
-$message = "Dear Customer,\n\nThank you for choosing Shop N Go for your shopping needs. We appreciate your trust in us and hope you had a great shopping experience.\n\nWe look forward to serving you again soon!\n\nBest regards,\nShop N Go Team";
+$message = "Dear " . htmlspecialchars($user['first_name']) . ",\n\nThank you for choosing Shop N Go for your shopping needs. We appreciate your trust in us and hope you had a great shopping experience.\n\nWe look forward to serving you again soon!\n\nBest regards,\nShop N Go Team";
 $pdf->MultiCell(0, 10, $message);
 
 // Output the PDF

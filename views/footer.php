@@ -16,10 +16,10 @@
 
             <ul class="list-inline mb-3">
                 <div class="nav-font">
-                    <li class="list-inline-item"><a href="privacy_policy.php" class="text-white" target="_blank">Privacy Policy</a></li>
-                    <li class="list-inline-item"><a href="terms_of_service.php" class="text-white" target="_blank">Terms of Service</a>
+                    <li class="list-inline-item"><a href="privacy_policy.php" class="text-white">Privacy Policy</a></li>
+                    <li class="list-inline-item"><a href="terms_of_service.php" class="text-white">Terms of Service</a>
                     </li>
-                    <li class="list-inline-item"><a href="faq.php" class="text-white" target="_blank">FAQ</a></li>
+                    <li class="list-inline-item"><a href="faq.php" class="text-white">FAQ</a></li>
                 </div>
             </ul>
         </div>
