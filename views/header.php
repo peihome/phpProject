@@ -29,31 +29,31 @@ require_once('../controllers/Utils.php');
             <div class="nav-font">
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="home.php">Home <span class="sr-only">(current)</span></a>
+                        <li class="nav-item <?php echo $_SESSION['page'] == 'Home' ? 'active' : '' ?>">
+                            <a class="nav-link" href="home.php">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item <?php echo $_SESSION['page'] == 'Product' ? 'active' : '' ?>">
                             <a class="nav-link" href="product.php">Products</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item <?php echo $_SESSION['page'] == 'Cart' ? 'active' : '' ?>">
                             <a class="nav-link" href="cart.php">Cart</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item <?php echo $_SESSION['page'] == 'Checkout' ? 'active' : '' ?>">
                             <a class="nav-link" href="checkout.php">Checkout</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item <?php echo $_SESSION['page'] == 'Orders' ? 'active' : '' ?>">
                             <a class="nav-link" href="orders.php">Orders</a>
                         </li>
 
                         <?php if($_SESSION['userId']) { ?>
 
-                            <li class="nav-item">
+                            <li class="nav-item <?php echo $_SESSION['page'] == 'Logout' ? 'active' : '' ?>">
                                 <a class="nav-link" href="logout.php">Logout</a>
                             </li>
 
                         <?php } else { ?>
 
-                            <li class="nav-item">
+                            <li class="nav-item <?php echo $_SESSION['page'] == 'Login' ? 'active' : '' ?>">
                                 <a class="nav-link" href="login.php">Login</a>
                             </li>
 

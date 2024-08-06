@@ -1,4 +1,8 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+$_SESSION['page'] = 'Product';
+include 'header.php'; 
+?>
 
 <div class="container mt-5">
     <h1 class="text-center">Our Products</h1>

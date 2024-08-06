@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['page'] = 'Orders';
 include 'header.php';
 
 // Fetch past orders

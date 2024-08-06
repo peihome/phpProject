@@ -86,6 +86,15 @@ class CartItem {
         $stmt->bind_param("iiid", $this->cart_id, $this->product_id, $this->quantity, $this->price);
         $stmt->execute();
     }
+
+    public function removeCartItemsById() {
+        $query = "DELETE FROM " . $this->table_name . " WHERE cart_id = ?";
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bind_param("i", $this->cart_id);
+
+        $stmt->execute();
+    }
 }
 
 ?>

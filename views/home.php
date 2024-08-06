@@ -1,4 +1,9 @@
-<?php include 'header.php'; ?>
+<?php 
+session_start();
+$_SESSION['page'] = 'Home';
+include 'header.php'; 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,4 +1,6 @@
 <?php 
+session_start();
+$_SESSION['page'] = 'Login';
 include 'header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {

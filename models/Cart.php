@@ -12,6 +12,7 @@ class Cart {
     public $user_id;
     public $created_at;
     public $updated_at;
+    public $isdelete;
 
     public function __construct() {
         $dbController = new DBController();
@@ -99,6 +100,11 @@ class Cart {
         if(!isset($this->cart_id)){
             $this->cart_id = $this->createAndGetCartIdByUserId();
             $_SESSION['cartId'] = $this->cart_id;
+        }
+
+        if($this->isdelete){
+            $this->cartItemObj->cart_id = $this->cart_id;
+            $this->cartItemObj->removeCartItemsById();
         }
 
         $cart = $_SESSION['cart'];

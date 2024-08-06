@@ -1,4 +1,6 @@
 <?php 
+session_start();
+$_SESSION['page'] = 'Product';
 include 'header.php';
 
 $product_id = $_GET['id'] ?? 0;
@@ -35,11 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (isset($_SESSION['cart'][$product_id])) {
         $_SESSION['cart'][$product_id] += $quantity;
+
+        if($_SESSION['cart'][$product_id] > 20) {
+            $_SESSION['cart'][$product_id] = 20;
+        }
+
     } else {
         $_SESSION['cart'][$product_id] = $quantity;
     }
     
-    updateCart($_SESSION['cart']);
+    updateCart($_SESSION['cart'], false);
 
     header('Location: cart.php');
     exit;

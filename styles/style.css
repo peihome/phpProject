@@ -220,3 +220,17 @@ header {
 .navbar-expand-lg {
     justify-content: space-between !important;
 }
+
+.quantity {
+    display: flex;
+    gap: 1em;
+    border-left: none !important;
+    border-right: none !important;
+    border-bottom: none !important;
+}
+
+.img-fluid {
+    object-fit: cover;
+    height: 100px;
+    width: 150px;
+}

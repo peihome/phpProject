@@ -1,4 +1,6 @@
 <?php
+session_start();
+$_SESSION['page'] = 'Checkout';
 include 'header.php';
 
 if (!isset($_SESSION['email'])) {

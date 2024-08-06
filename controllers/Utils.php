@@ -100,9 +100,10 @@
         return $product->getProducts();
     }
 
-    function updateCart($cartItems) {
+    function updateCart($cartItems, $isdelete) {
         $cart = new Cart();
         $cart->cartItems = $cartItems;
+        $cart->isdelete = $isdelete;
 
         $cart->updateCart();
     }
