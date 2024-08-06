@@ -24,12 +24,12 @@ $errors = [];
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Input validation
-    $street = $_POST['street'] ?? '';
-    $city = $_POST['city'] ?? '';
-    $state = $_POST['state'] ?? '';
-    $postal_code = $_POST['postal_code'] ?? '';
-    $phone = $_POST['phone'] ?? '';
-    $payment_method = $_POST['payment_method'] ?? '';
+    $street = htmlspecialchars(trim($_POST['street'] ?? ''));
+    $city = htmlspecialchars(trim($_POST['city'] ?? ''));
+    $state = htmlspecialchars(trim($_POST['state'] ?? ''));
+    $postal_code = htmlspecialchars(trim($_POST['postal_code'] ?? ''));
+    $phone = htmlspecialchars(trim($_POST['phone'] ?? ''));
+    $payment_method = htmlspecialchars(trim($_POST['payment_method'] ?? ''));
 
     if (empty($street)) {
         $errors[] = 'Street address is required.';
@@ -69,6 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         placeOrder($shipping_address);
         unset($_SESSION['cart']);
         unset($_SESSION['cartId']);
+        $_SESSION['message'] = "Order successfully placed!";
 
         header('Location: orders.php');
         exit;

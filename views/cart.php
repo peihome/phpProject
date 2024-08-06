@@ -13,7 +13,7 @@ if (!isset($_SESSION['email'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $isdelete = isset($_POST['delete']);
     if ($isdelete) {
-        $deleteProductId = $_POST['delete'];
+        $deleteProductId = htmlspecialchars(trim($_POST['delete'] ?? ''));
         unset($_SESSION['cart'][$deleteProductId]);
     }else {
         foreach ($_POST['quantity'] as $product_id => $quantity) {
@@ -103,7 +103,7 @@ $total = 0;
         <?php else: ?>
             <div class="text-center">
                 <p>Your cart is empty.</p>
-                <img src="../images/empty_cart.png" alt="Empty Cart" class="img-fluid" style="max-width: 300px;">
+                <img src="../images/empty_cart.png" alt="Empty Cart" class="img-fluid heightAuto" style="max-width: 300px;">
             </div>
         <?php endif; ?>
         </div>

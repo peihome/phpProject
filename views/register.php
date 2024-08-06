@@ -2,11 +2,11 @@
 include 'header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $firstName = $_POST['firstName'];
-    $lastName = $_POST['lastName'];
+    $username = htmlspecialchars(trim($_POST['username'] ?? ''));
+    $email = htmlspecialchars(trim($_POST['email'] ?? ''));
+    $password = htmlspecialchars(trim($_POST['password'] ?? ''));
+    $firstName = htmlspecialchars(trim($_POST['firstName'] ?? ''));
+    $lastName = htmlspecialchars(trim($_POST['lastName'] ?? ''));
 
     $register_response = registerUser($username, $password, $email, $firstName, $lastName);
 

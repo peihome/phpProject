@@ -3,7 +3,7 @@ session_start();
 $_SESSION['page'] = 'Product';
 include 'header.php';
 
-$product_id = $_GET['id'] ?? 0;
+$product_id = htmlspecialchars(trim($_GET['id'] ?? 0));
 $product = getProductById($product_id);
 
 if (!$product) {
@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <div class="container mt-5 product">
         <div class="row">
             <div class="col-md-7">
-                <img src="<?php echo htmlspecialchars($product['image_url']); ?>" class="img-fluid" alt="<?php echo htmlspecialchars($product['name']); ?>">
+                <img src="<?php echo htmlspecialchars($product['image_url']); ?>" class="img-fluid heightAuto" alt="<?php echo htmlspecialchars($product['name']); ?>">
             </div>
             <div class="col-md-4">
                 <h1><?php echo htmlspecialchars($product['name']); ?></h1>

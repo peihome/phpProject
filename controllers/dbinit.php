@@ -36,11 +36,15 @@ CREATE TABLE IF NOT EXISTS Users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
+ALTER TABLE Users AUTO_INCREMENT = 1000;
+
 CREATE TABLE IF NOT EXISTS Categories (
     category_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT
 );
+
+ALTER TABLE Categories AUTO_INCREMENT = 100;
 
 CREATE TABLE IF NOT EXISTS Products (
     product_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -66,6 +70,8 @@ CREATE TABLE IF NOT EXISTS Carts (
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
 
+ALTER TABLE Carts AUTO_INCREMENT = 200;
+
 CREATE TABLE IF NOT EXISTS CartItems (
     cart_item_id INT AUTO_INCREMENT PRIMARY KEY,
     cart_id INT NOT NULL,
@@ -78,6 +84,8 @@ CREATE TABLE IF NOT EXISTS CartItems (
     FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
 
+ALTER TABLE CartItems AUTO_INCREMENT = 200;
+
 CREATE TABLE IF NOT EXISTS Orders (
     order_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
@@ -87,6 +95,8 @@ CREATE TABLE IF NOT EXISTS Orders (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
+ALTER TABLE Orders AUTO_INCREMENT = 1000;
 
 CREATE TABLE IF NOT EXISTS OrderItems (
     order_item_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -98,6 +108,8 @@ CREATE TABLE IF NOT EXISTS OrderItems (
     FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     FOREIGN KEY (product_id) REFERENCES Products(product_id)
 );
+
+ALTER TABLE OrderItems AUTO_INCREMENT = 1000;
 
 CREATE TABLE IF NOT EXISTS Addresses (
     address_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -111,6 +123,8 @@ CREATE TABLE IF NOT EXISTS Addresses (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Users(user_id)
 );
+
+ALTER TABLE Addresses AUTO_INCREMENT = 2000;
 ";
 
 // Execute the SQL to create tables
@@ -128,32 +142,25 @@ if ($conn->multi_query($sql)) {
 
 // Populate tables with random data
 $populateSql = "
-INSERT INTO Users (username, password_hash, email, first_name, last_name) VALUES
-('johndoe', MD5('password123'), 'johndoe@example.com', 'John', 'Doe'),
-('janedoe', MD5('password123'), 'janedoe@example.com', 'Jane', 'Doe');
-
 INSERT INTO Categories (name, description) VALUES
 ('Fruits', 'Fresh and juicy fruits'),
 ('Vegetables', 'Fresh vegetables'),
 ('Dairy', 'Milk, cheese, and other dairy products');
 
 INSERT INTO Products (name, description, price, stock_quantity, category_id, image_url) VALUES
-('Apple', 'Fresh red apples', 0.99, 100, 1, '../images/apple.jpg'),
-('Banana', 'Fresh yellow bananas', 0.59, 150, 1, '../images/banana.jpg'),
-('Orange', 'Citrusy and refreshing oranges', 1.20, 200, 1, '../images/orange.jpg'),
-('Grapes', 'Fresh and sweet grapes', 1.20, 50, 1, '../images/grapes.jpg'),
-('Carrot', 'Crunchy and healthy carrots', 0.80, 150, 2, '../images/carrot.jpg'),
-('Lettuce', 'Fresh and crispy lettuce', 0.90, 100, 2, '../images/lettuce.jpg'),
-('Tomato', 'Ripe and juicy tomatoes', 0.70, 80, 2, '../images/tomato.jpg'),
-('Cucumber', 'Cool and refreshing cucumbers', 1.10, 90, 2, '../images/cucumber.jpg'),
-('Milk', 'Fresh dairy milk', 2.00, 110, 3, '../images/milk.jpg'),
-('Cheese', 'Delicious cheese', 3.50, 120, 3, '../images/cheese.jpg'),
-('Yogurt', 'Creamy and healthy yogurt', 1.50, 130, 3, '../images/yogurt.jpg'),
-('Butter', 'Rich and creamy butter', 2.50, 70, 3, '../images/butter.jpg');
+('Apple', 'Fresh red apples', 0.99, 100, 100, '../images/apple.jpg'),
+('Banana', 'Fresh yellow bananas', 0.59, 150, 100, '../images/banana.jpg'),
+('Orange', 'Citrusy and refreshing oranges', 1.20, 200, 100, '../images/orange.jpg'),
+('Grapes', 'Fresh and sweet grapes', 1.20, 50, 100, '../images/grapes.jpg'),
+('Carrot', 'Crunchy and healthy carrots', 0.80, 150, 101, '../images/carrot.jpg'),
+('Lettuce', 'Fresh and crispy lettuce', 0.90, 100, 101, '../images/lettuce.jpg'),
+('Tomato', 'Ripe and juicy tomatoes', 0.70, 80, 101, '../images/tomato.jpg'),
+('Cucumber', 'Cool and refreshing cucumbers', 1.10, 90, 101, '../images/cucumber.jpg'),
+('Milk', 'Fresh dairy milk', 2.00, 110, 102, '../images/milk.jpg'),
+('Cheese', 'Delicious cheese', 3.50, 120, 102, '../images/cheese.jpg'),
+('Yogurt', 'Creamy and healthy yogurt', 1.50, 130, 102, '../images/yogurt.jpg'),
+('Butter', 'Rich and creamy butter', 2.50, 70, 102, '../images/butter.jpg');
 
-INSERT INTO Addresses (user_id, street, city, state, postal_code, country) VALUES
-(1, '123 Main St', 'Anytown', 'CA', '12345', 'USA'),
-(2, '456 Elm St', 'Othertown', 'NY', '67890', 'USA');
 ";
 
 // Execute the SQL to populate tables

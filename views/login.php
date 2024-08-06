@@ -4,8 +4,8 @@ $_SESSION['page'] = 'Login';
 include 'header.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+    $email = htmlspecialchars(trim($_POST['email'] ?? ''));
+    $password = htmlspecialchars(trim($_POST['password'] ?? ''));
 
     $userId = loginUser($email, $password);
     if (is_int($userId)) {
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         exit;
     }else {
-        $_SESSION['message'] = $login_response;
+        $_SESSION['message'] = $userId;
     }
 
 }

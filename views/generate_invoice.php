@@ -5,7 +5,7 @@ require_once('../controllers/Utils.php');
 require_once('../lib/fpdf.php');
 
 // Fetch order details
-$order = getOrderById($_GET['order_id']);
+$order = getOrderById(htmlspecialchars(trim($_GET['order_id'] ?? '')));
 
 $user = getUserByUserId($order['user_id']);
 
