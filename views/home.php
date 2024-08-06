@@ -9,7 +9,7 @@ include 'header.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop and Go - Home</title>
+    <title>Shop N Go - Home</title>
     <link rel="stylesheet" href="../styles/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -17,7 +17,7 @@ include 'header.php';
     <!-- Hero Section -->
     <div class="hero-section text-center text-white">
         <div class="container">
-            <h1 class="display-4">Welcome to Shop and Go</h1>
+            <h1 class="display-4">Welcome to Shop N Go</h1>
             <p class="lead">Your one-stop shop for all your grocery needs!</p>
             <a href="product.php" class="btn btn-primary btn-lg custom-button1">Browse Products</a>
         </div>

@@ -104,9 +104,8 @@ footer {
 }
 
 .head-back{
-
     background-color: #F5F5DC !important;
-    color:#32CD32 !important;
+    color:#68cd32 !important;
 }
 
 .card {
@@ -238,4 +237,35 @@ header {
 .heightAuto {
     height: auto !important;
     width: auto !important;
+}
+
+/* FAQ Starts */
+.container {
+    margin-top: 50px;
+}
+h1 {
+    margin-bottom: 30px;
+}
+.faq-item {
+    margin-bottom: 20px;
+}
+.faq-item h4 {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+}
+.faq-item .answer {
+    display: none;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background-color: #ffffff;
+}
+/* FAQ Ends */
+
+p {
+    margin-bottom: 20px;
 }

@@ -7,10 +7,10 @@ require_once('../controllers/Utils.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shop and Go</title>
+    <title>Shop N Go</title>
     <link rel="icon" type="image/x-icon" href="../images/logo.jpg">
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="../js/script.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -21,7 +21,7 @@ require_once('../controllers/Utils.php');
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
             <a class="navbar-brand" href="home.php">
-                <img src="../images/logo.jpg" alt="Shop and Go" class="logo" id="navbar-logo"> Shop and Go</a>
+                <img src="../images/logo.jpg" alt="Shop N Go" class="logo" id="navbar-logo"> Shop N Go</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
